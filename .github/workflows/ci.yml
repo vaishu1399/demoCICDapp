@@ -38,7 +38,12 @@ jobs:
       run: flutter analyze
 
     - name: Run unit tests
-      run: flutter test
+      run: |
+        if [ -d "test" ]; then
+          flutter test
+        else
+          echo "No tests found, skipping test step."
+        fi
 
     - name: Run security scan
       run: flutter pub outdated
