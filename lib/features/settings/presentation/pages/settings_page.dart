@@ -42,7 +42,7 @@ class SettingsPage extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             itemCount: settings.length,
             itemBuilder: (context, index) {
-              final setting = settings[index] as AppSettings;
+              final setting = settings[index];
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: ComingSoonCard(

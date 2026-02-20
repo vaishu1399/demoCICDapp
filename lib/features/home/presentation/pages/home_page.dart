@@ -45,7 +45,7 @@ class HomePage extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             itemCount: features.length,
             itemBuilder: (context, index) {
-              final feature = features[index] as Feature;
+              final feature = features[index];
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: ComingSoonCard(
