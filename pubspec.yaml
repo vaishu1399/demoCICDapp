@@ -1,0 +1,38 @@
+name: democicdapp
+description: "A production-ready Flutter app with Clean Architecture."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  
+  # State Management - Riverpod
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  
+  # Routing - AutoRoute
+  auto_route: ^9.2.2
+  
+  # Utilities
+  equatable: ^2.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  
+  # Code Generation
+  build_runner: ^2.4.14
+  riverpod_generator: ^2.6.3
+  auto_route_generator: ^9.0.0
+
+flutter:
+  uses-material-design: true
