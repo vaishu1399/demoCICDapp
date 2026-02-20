@@ -1,0 +1,52 @@
+name: Flutter CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout source code
+      uses: actions/checkout@v4
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Setup Flutter SDK
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: stable
+
+    - name: Verify Flutter installation
+      run: flutter doctor
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Run static analysis
+      run: flutter analyze
+
+    - name: Run unit tests
+      run: flutter test
+
+    - name: Run security scan
+      run: flutter pub outdated
+
+    - name: Build APK
+      run: flutter build apk --debug
+
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: demoCICDapp-apk
+        path: build/app/outputs/flutter-apk/app-debug.apk 
